@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 层级选择器要有层级关系,根据层级关系获取子标签,给子标签添加样式 */
+        /* 层级选择器不一定必须是父子关系,祖孙关系的子标签也可以 */
+        div{
+            color: black;
+        }
+        div div{
+            color: aqua;
+        }
+        div .box1{
+            color: blue;
+        }
+        div p{
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>哈哈</div>
+        <div class="box1">测试</div>
+        <h1>
+            <p>测试段落标签</p>
+        </h1>
+    </div>
+</body>
+</html>

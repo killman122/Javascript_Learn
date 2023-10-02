@@ -1,0 +1,74 @@
+<!-- 表单用于收集不同的类型的用户输入的数据,然后可以把用户数据提交给服务器 -->
+<!-- 
+    <form> 标签: 表示表单标签,定义整体的表单区域
+    <label> 标签: 表示表单元素的文字标注标签,定义文字标注
+    <input> 标签: 表示表单元素的用户输入标签,定义不同类型的用户输入数据方式
+
+    type属性
+        type="text" 定义单行文本输入框
+        type="password" 定义密码输入框
+        type="radio" 定义单选框
+        type="checkbox" 定义复选框
+        type="file" 定义上传文件
+        type="submit" 定义提交按钮
+        type="reset" 定义重置按钮
+        type="button" 定义一个普通按钮
+
+    <textarea> 标签 表示表单元素的多行文本输入框标签,定义多行文本输入框
+    <select> 标签 表示表单元素的下拉列表标签 定义下拉列表
+        <option> 标签 与<select>标签配合,定义下拉列表中的选项
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <!-- form表单中的action属性表示了表单提交的url地址,可以在后端处理相关的数据,将数据提交到服务器需要表单标签 -->
+    <form action="">
+        <label for="">用户名:</label><input type="text" placeholder="数据填写">
+        <br> <!--为了换行可以使用br标签换行,可以使用容器分装,也可以使用段落标签p标签分装-->
+        <label for="">密码:</label><input type="password" placeholder="数据填写">
+        <p>
+            <label for="name">性别:</label>
+            <!-- label标签中的for和input标签中的id绑定,可以在点击label标注时,光标自动移动到绑定id的input标签中 -->
+            <!-- for 根据id给指定id的标签中设置光标 -->
+            <input type="radio" id="name">男
+            <input type="radio" id="name">女
+        </p>
+        <p>
+            <label for="">爱好:</label>
+            <input type="checkbox" id="name">学习
+            <input type="checkbox" id="name">睡眠
+            <input type="checkbox" id="name">睡眠
+        </p>
+        <p>
+            <label for="">玉照:</label>
+            <input type="file">
+        </p>
+        <p>
+            <label for="">个人描述:</label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+            <label for="">籍贯:</label>
+            <select name="" id="">
+                <option value="">北京</option>
+                <option value="">河北</option>
+                <option value="">广州</option>
+                <option value="">深圳</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="提交">
+            <input type="reset" value="重置">
+            <input type="button" value="按钮">
+        </p>
+
+    </form>
+ </body>
+ </html>

@@ -1,0 +1,66 @@
+<!-- 
+    表单属性设置
+    <from> 标签 设置表单数据提交地址
+    action属性 设置表单数据提交地址
+    method属性 设置表单提交的方式,一般用"GET""POST"方式,不区分大小写
+    
+    表单元素属性设置
+    name属性 设置表单元素的名称,该名称是提交数据时的参数名
+    value属性 设置表单元素的值,该值是提交数据时参数名对应的值
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <!-- 将数据提交给服务器需要使用表单标签:from -->
+    <form action="https://www.baidu.com" method="POST">
+        <label for="">用户名:</label>
+        <input type="text" placeholder="数据填写" name="username"><!--相当于username=xxx的形式的数据提交给服务器-->
+        <br>
+        <!--为了换行可以使用br标签换行,可以使用容器分装,也可以使用段落标签p标签分装-->
+        <label for="">密码:</label><input type="password" placeholder="数据填写" name="password">
+        <p>
+            <label for="name">性别:</label>
+            <!-- label标签中的for和input标签中的id绑定,可以在点击label标注时,光标自动移动到绑定id的input标签中 -->
+            <!-- for 根据id给指定id的标签中设置光标 -->
+            <input type="radio" id="name" name="sex" value="0">男
+            <input type="radio" id="name" name="sex" value="1">女
+        </p>
+        <p>
+            <label for="">爱好:</label>
+            <input type="checkbox" id="name" name="love" value="学习">学习
+            <input type="checkbox" id="name" name="love" value="睡眠">睡眠
+            <input type="checkbox" id="name" name="love" value="打游戏">打游戏
+        </p>
+        <p>
+            <label for="">玉照:</label>
+            <input type="file" name="pic">
+        </p>
+        <p>
+            <label for="">个人描述:</label>
+            <textarea name="desc" id="" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+            <label for="">籍贯:</label>
+            <select name="position" id="">
+                <option value="1">北京</option>
+                <option value="2">河北</option>
+                <option value="3">广州</option>
+                <option value="4">深圳</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="提交">
+            <input type="reset" value="重置">
+            <input type="button" value="按钮">
+        </p>
+        <!-- get和post提交表单数据都是以http协议的方式提交数据给web服务器 -->
+    </form>
+ </body>
+ </html>
