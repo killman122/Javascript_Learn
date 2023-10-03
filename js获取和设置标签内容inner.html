@@ -1,0 +1,37 @@
+<!-- 什么叫做标签包裹的内容(inner包裹) 
+    <div id="div1">这是一个div元素</div>
+    在上面的div标签中,标签包裹的内容就是在两个<>之间的代码内容
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // window.onload = function(){
+        //     // 根据标签的id获取标签对象
+        //     var oDiv = document.getElementById("div1")
+        //     // 按照id锁定标签,按照标签读取标签中的内容
+        //     var sTxt = oDiv.innerHTML;
+        //     alert(sTxt);
+        //     // 写入内容到标签中,注意不要忘记添加;在每行代码的结尾处,否则会造成代码没有执行
+        //     oDiv.innerHTML = '<a herf="http://www.baidu.com">穿着教育</a>'
+        // };
+        window.onload = function () {
+            // 根据标签的id获取标签对象
+            var oDiv = document.getElementById("div1");
+            // 按照id锁定标签,按照标签读取标签中的内容
+            var sTxt = oDiv.innerHTML;
+            alert(sTxt);
+            // 写入内容到标签中
+            oDiv.innerHTML = '<a href="http://www.baidu.com">穿着教育</a>';
+        };
+    </script>
+</head>
+<body>
+    <div id="div1">这是一个div标签元素</div>
+</body>
+</html>
