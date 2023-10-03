@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            /* 把该标签隐藏并且不占位置 */
+            display: none;
+            /* 提示:标签再次显示可以设置block,或者删除display:none的标签属性 */
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            /* 设置div可以和其他元素一起显示,但是不能设置宽高 */
+            /* 将css属性改为display:inline; 显示在一行,但是将css选择改为显示在一行后则无法设置宽高,也可以说宽高设置无效 */
+            /* 以后既设置div的宽高又想设置在一行显示,可以通过设置浮动完成,浮动可以使得块级元素显示在同一行并且可以设置元素的宽高 */
+            display: inline;
+            /* 把该标签隐藏并且不占位置 */
+            /* display: none; */
+        }
+        a{
+            /* 设置标签自己单独占用一行,不和其他标签在一行显示 */
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        哈哈
+    </div>
+    <p>
+        嘻嘻
+    </p>
+    <div class="box2">哈哈</div>
+    <a href="https://baidu.com">百度</a>
+</body>
+
+</html>

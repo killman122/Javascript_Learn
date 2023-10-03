@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            /* 设置元素溢出需要在父标签的css选择器上进行设置 */
+            /* 超出部分隐藏的子元素溢出选项 */
+            /* overflow: hidden; */
+            /* 默认超出部分显示visable */
+            /* overflow: visible; */
+            /* 使用auto超出部分滚动显示 */
+            overflow: auto;
+        }
+        .box2{
+            width: 200px;
+            height: 50px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 父元素是div标签class为box1的 -->
+    <!-- 子元素是div标签class为box2的 -->
+    <div class="box1"> 
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
