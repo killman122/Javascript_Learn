@@ -1,0 +1,60 @@
+<!-- 注意这里的获取和设置标签的其他属性,一般不包括标签的样式属性,这里的样式属性需要css()方法设置在jQuery中
+    然而在jQuery中对其他标签属性的操作主要是使用prop()方法,这点需要注意,如果是使用js则直接通过
+    var btn1 = document.getElementById('btn1')
+            // 获取标签的属性,这里选取的属性是type属性,在id为btn1的按钮中,属性是在标签内部或者是在css选择其中设置的一些属性
+            // 设置标签的属性,其中在style下的都属于是样式属性,其余的属性是真正的标签属性
+            btn1.name = "username";
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 设置jQuery的地址 -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function show($px) {
+            alert(`测试调用css()函数后是否成功的修改了标签的页面属性${$px}`);
+        }
+
+        $(function () {
+            // 获取标签
+            var $p = $("p");
+            // 获取标签的样式属性
+            var $px = $p.css("font-size"); //如果直接使用函数的方式,传入属性名作为参数,那么css()函数相当于只是获取标签的页面属性,但是如果传入的方式是以键值对的方式传入,则相当于使用css()函数对标签的样式属性进行赋值
+            // 使用弹窗的方式获取获取标签的样式属性
+            alert($px); //16px
+            // 使用css()设置标签的字体大小和背景颜色
+            $p.css({ "font-size": "20px", "background": "yellow" });
+            var tid = setTimeout(show, 2000, $px) // 注意在此处增加延时不会使得获取得标签对象得属性进行更改,原因是在传入时标签对象已经更改过,除非重新进行赋值
+
+            // 获取标签对象
+            var $txt = $("#txt1");
+            // 除了css样式属性的相关操作使用css方法,其他属性的操作都是以prop方法,当只有一个参数时表示获取标签的属性名为参数的属性
+            var $name = $txt.prop("name")// 当在prop()函数中传入两个参数时,表示对第一个参数属性名进行赋值第二个参数属性值,当传入{}包裹的键值对形式的参数,也是表示对标签的属性进行赋值
+            alert($name);
+            // $p.prop()
+
+            // 设置标签属性
+            $txt.prop({ "name": "王道的段落标签", "value": "王道无敌" });
+            var $name = $txt.prop("name")// 当在prop()函数中传入两个参数时,表示对第一个参数属性名进行赋值第二个参数属性值,当传入{}包裹的键值对形式的参数,也是表示对标签的属性进行赋值
+            alert($name);
+
+            // 获取标签的value可以使用更简单的方法使用val()方法
+            alert(`弹窗输出该段落标签p标签的value属性'\n'${$txt.prop("value")}`)
+            // 使用val()函数获取在jQuery中标签对象得取值
+            alert($txt.val())// 通过查看代码悬停时得注解可以知道val()函数
+        });
+    </script>
+</head>
+
+<body>
+    <p>哈哈,我是一个段落标签</p>
+    <input type="text" name="username" id="txt1" value="王道">
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!-- 什么叫做标签包裹的内容(inner包裹) 
+    <div id="div1">这是一个div元素</div>
+    在上面的div标签中,标签包裹的内容就是在两个<>之间的代码内容
+
+    在jQuery中使用$变量的html()方法实现获取,标签的内容并且可以为标签进行赋值,在js中使用的innerHtml
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var $div1 = $("div");
+            alert($div1.length); // 在vscode中蓝色的是属性,黄色的是方法()
+
+            // 使用jQuery的方式获取标签内容
+            alert($div1.html()); // 注意在jQuery中和js不同的是在js中使用調用的是屬性不是方法,但是在jQuery中使用的是方法不是屬性,可以按下ctrl鍵,將鼠標懸停查看相關的信息 
+            // 设置标签内容
+            $div1.html("哈哈你媽屁,起來嗨,哈哈哈") // 注意这个函数传入的是参数和js中的属性innerHtml是不同的,属性可以使用.的方式进行属性的赋值和修改,但是在函数中只能使用函数的实参或者形参的方式赋值
+
+            // 追加内容和列表以及数组相似,对元素内容进行追加使用的都是append()的方式
+            $div1.append('<a href="http://www.baidu.com">穿着教育</a>')  // 注意是href 不是herf的方式在添加链接在a标签中,a标签作为一个超链接标签
+        });
+    </script>
+</head>
+
+<body>
+    <div name="div">哈哈</div>
+</body>
+
+</html>

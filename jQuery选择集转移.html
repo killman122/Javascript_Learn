@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 选择集转移: 根据指定标签为参照物,选择其他标签,这种操作叫做选择集 -->
+    <!-- 将jQery的相关js导入 -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () { // 注意在编写使用jQuery的js时使用的变量都需要$符号开头,注意不要将$的函数赋值给变量,$()是一个函数并不是属性,在使用时需要注意
+            var $div1 = $('#box1');
+            // 获取div标签,并将div标签作为参照物,在使用选择集的转移时需要使用
+            // 选择上一个同级标签,并对其进行属性的操作
+            $div1.prev().css({ "color": "red", "font-size": "20px" })
+            // 在设置属性时需要注意属性名需要和css中的属性名一致,没有无中生有的选项
+            // 注意css函数的参数是一个对象,js对象和python中的字典很相似
+            //使用快捷键shift+alt+f能够实现快速格式化代码在vscode中
+
+            // 选择指定标签上面的所有文本,将所有标签中的文本实现缩进
+            $div1.prevAll().css({"text-indent":"50px"});
+            //选择指定标签的下一个同级标签
+            $div1.next().css({"color":"purple"});
+            // 选择下面所有的同级标签
+            $div1.nextAll().css({"text-indent":"50px"})
+            //选择同级的其他标签
+            $div1.siblings().css({"text-decoration":"underline"})
+            //选择父标签设置属性css样式,注意设置的css样式实际上在真正的标签中是在style属性中的包括颜色color,字体font
+            $div1.parent().css({"background":"orange"})
+            // 获取所有的子标签
+            $div1.children().css({"color":"red"})
+            // 查找指定的子标签
+            $div1.find(".sp1").css({"color":"green"})
+        }); 
+    </script>
+</head>
+
+<body>
+    <div>
+        <h3>三级标签</h3>
+        <p>哈哈</p>
+        <div id="box1">
+            <span>我是</span>一个<span class="sp1">div标签</span>
+        </div>
+        <h3>三级标签</h3>
+        <p>哈哈</p>
+    </div>
+</body>
+
+</html>
