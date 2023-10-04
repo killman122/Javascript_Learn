@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 定时器:根据指定的事件间隔延时调用指定的函数 -->
+    <script>
+        // function fnShow(name,age){
+        //     alert("ok"+name+age);
+        //     alert(tid);
+        //     //销毁定时器
+        //     clearTimeout(tid);
+        // }
+        // // 根据时间间隔调用一次函数的定时器
+        // var tid = setTimeout(fnShow,2000,'王道',21)
+        
+        function fnShowInfo(name,age){
+            alert("ok"+name+age);
+            alert(tid);
+        }
+
+        // 根据时间间隔重复调用定时器
+        var tid = setInterval(fnShowInfo,3000,'李四',22);
+        // 停止
+        function stop(){
+            alert("执行关闭弹窗"+tid);
+            clearInterval(tid);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="停止" onclick="stop();"> 
+    <!-- 当触发点击事件后直接调用自定义的stop()函数停止弹窗的定时调用 -->
+</body>
+</html>

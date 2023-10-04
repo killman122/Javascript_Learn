@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var aArray = [1,2,3];
+        // 第一种for循环遍历方式遍历数组
+        for(var i in aArray){
+            console.log(`逐个输出aArray中的数组元素${aArray[i]}`);//注意此处并非单引号二十和md中的链式代码相同的写法,使用在esc按键下的第一个按钮中的类单引号
+        }
+        // 第二种for循环遍历方式遍历数组,使用类似于C++java等和长度相关的数组遍历方式
+        for(var i=0;i<aArray.length;i++){
+            console.log(`输出数组aArray中的每一个元素${aArray[i]}`);
+        }
+        // 第三种方式遍历数组,取得数组中的元素的值,使用while循环
+        var index = 0;
+        while (index <aArray.length){
+            console.log(`输出数组aArray中的每一个元素${aArray[index]}`);
+            index++;
+        }
+        // 第四种方式遍历数组,取得数组中的元素的值,使用do-while循环
+        var index = 0;
+        do{
+            //这里需要完成数组的取值操作
+            console.log(`输出数组中的每一个元素的值${aArray[index]}`);
+            index++;
+        }while(index<aArray.length)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

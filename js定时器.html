@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 定时器根据指定的时间间隔延时调用指定的函数
+        // 根据时间间隔调用一次函数的定时器
+        // function fnShow(name,age){
+        //     alert("ok"+name+age);
+        //     alert(tid)// 显示定时的id,也是显示的是这是第几个定时器
+        //     // 销毁定时器
+        //     // clearInterval
+        //     clearTimeout(tid)// 如果是要销毁一次的定时器则使用Timeout,反之使用Interval作为长期的定时器
+        // }
+        // 定时器要执行的函数
+        // 时间间隔
+        // 参数,多个参数使用逗号,分割
+        // 返回值表示创建定时器返回的id,通俗理解就是创建的第几个定时器
+        // var tid = setTimeout(fnShow,500,'王道',21)// 在setTimeout函数中由于调用的需要定时的函数没有参数,所以在设置好setTimeout的延时时间后就不再传入参数
+
+        // 使用箭头函数的方式调用匿名函数的方法执行定时器动作
+        // setTimeout(() => {
+        //     xxx
+        // }, timeout);
+
+
+        
+        
+        // 根据时间间隔重复的调用函数的定时器
+        function fnShow(name,age){
+            alert("ok"+name+age);
+            alert(timer);
+            // clearInterval(timer)
+        }
+
+        // 不使用匿名函数使用显式的函数名调用
+        // setInterval(fnShow,2000,"王道",20)
+
+        // 使用箭头函数的方式调用循环定时器,可以循环多次使用,感觉网页中的轮播图效果使用的就是这种方法
+        let timer = setInterval(() => {//定义const 只读变量也是常量,由于该定时器是一个循环显示定时器,实质上是同一个定时器,即使没有销毁返回的定时器id值始终唯一,所以相当于常量可以使用const常量类型来接受数据
+            // 调用函数
+            fnShow("王道", 20);
+        }, 2000);
+
+            // 定义函数
+            // function fnShow(name, age) {
+            //     alert("ok" + name + age);
+            // }
+
+            // // 使用箭头函数调用定时函数
+            // setInterval(() => {
+            //     fnShow("王道", 20);
+            // }, 2000);
+
+        // 可以将销毁的函数clearInterval()函数封装在一个函数中,将该函数作为事件绑定到某个标签上,可以是标签的cilck属性
+        function stop(){
+            clearInterval(timer);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="点击暂停" onclick="stop();">
+</body>
+</html>

@@ -6,7 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-         
+        //定义一个数组
+        var arr1 = new Array(1,2,3);
+        console.log(arr1);
+        // 字面量方式创建数组,相当于直接赋值一个数组,数组的表现形式是一对中括号
+        var arr2 = [4,5,6];
+        console.log(arr2);
+        // 多维数组
+        var arr3 = [[1,2,3],[4,5,6]];
+        // 根据数组的下标取值
+        arr1 = arr3[0];
+        arr2 = arr3[1];
+        console.log("arr1的数组是"+arr1);
+        console.log("arr2的数组是"+arr2);//貌似数组类型的数据在和字符串一起时也表示为字符串,将数组类型数据强制转换
+
+        // 演示数组的相关操作
+        var aArray4 = [3,6,9];
+        // 获取数组的元素的长度,获取数组元素的个数
+        console.log("当前数组aArray4的数组的长度是"+aArray4.length)
+        // 根据数组元素下标取值
+        console.log("根据数组元素下标取值aArray4数组中的第三个元素,该元素值应该是9------"+aArray4[2])
+
+        // 根据数组下标修改数组中元素的数据
+        console.log("数组元素修改前的数据,这里使用aArray4数组作为展示"+aArray4)
+        console.log("当前正在修改数据,将数组中的最后一个元素进行更改")
+        aArray4[2] = 8
+        console.log("现在显示的是修改后的数据"+aArray4)
+        // 通过测试可以通过数组的下标实现修改数据
+
+        // 追加数据
+        aArray4.push("添加元素成功")
+        console.log(aArray4)
+        // 删除末尾最后元素
+        aArray4.pop()
+        console.log("这里没有填写任何参数的pop数组中的元素"+aArray4)
+        // 指定填入pop中number类型数据,查看效果,发现在pop函数中加入参数后没有任何作用,只要使用pop都是删除栈或者队列,列表,数组等有序序列的最后一个元素 
+        aArray4.pop(0)
+        console.log("这里是在pop函数中加入参数后"+aArray4)//3,6
+
+        // 插入数据,使用splice在插入和删除数据时都可以使用splice具体功能取决于传入的参数,并且可以不使用参数接受返回的数据,数据在使用splice函数后会自动更改
+        // 在splice函数中,第一个参数是开始删除的索引,第二个参数是从索引开始删除的元素个数,第三个参数是在删除元素后需要添加的新的元素可以是单个或者是多个元素,不限制参数的个数
+        aArray4.splice(0,0,8,8,6)
+        console.log("在没有添加返回的赋值的情况下测试是否能将数据保存在修改后的数组中"+aArray4)
+
     </script>
 </head>
 <body>
