@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="/js/jquery-1.12.4.js"></script> -->
+    <!-- 本地文件目录映射有问题,所以使用字节的远程cdn加速js -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+
+            // 获取对应的标签对象
+            var $p = $("p");
+            alert($p);
+            alert($p.length);
+            // 设置选中的标签的css样式
+            //    通过jQuery设置标签的样式,使用key-value键值对的形式
+            $p.css({"color":"red"});// 执行到此处时已经将标签选择,并设置好标签的css样式color
+            //    类选择器的方式选中标签对象
+            var $div1 = $(".div1");
+            alert($div1.length)
+            $div1.css({"background":"green"});
+            var $div1 = $("#box1");
+            alert($div1);
+            alert($div1.length);
+
+            // 结论:在使用jQuery匹配标签和使用css选择器匹配标签的方法一样
+            var $h1 = $("div h1");
+            alert($h1.length);// 查看选择的标签的长度确定选择中了什么元素
+            $h1.css({"color":"blue"})
+
+            // 获取type类型为text的input标签
+            var $input1 = $("input");
+            alert($input1);
+            alert($input1.length);
+            $input1.css({"value":"输入框"})
+
+            // 获取按钮标签,使用jQuery中的属性选择器
+            var $input2 = $("input[value=这是一个按钮]")
+            alert($input2);
+            alert(`测试能否将获取的按钮的长度直接通过弹窗的方式反馈${$input2.length}`);
+            // 通过测试发现即使是在弹窗中依旧可以使用`${变量}`的方式输出格式的字符串,即使在使用jQuery的形式下,不会产生由于$符号的二义性冲突
+
+        });
+    </script>
+</head>
+<body>
+    <p>hello</p>
+    <p>hello</p>
+    <div class="div1">哈哈哈</div>
+    <div id="box1">嘻嘻</div>
+    <div>
+        <h1>哈哈</h1>
+    </div>
+    <input type="text">
+    <input type="button" value="这是一个按钮">
+</body>
+</html>

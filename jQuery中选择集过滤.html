@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- 注意:只有在下了断点之后才能将一些变量或者是数据的值在网页控制台中进行调试输出,否则会出现未定义的异常报错问题,一般情况下,浏览器自带的属性是可以直接在控制台进行调试输出的 -->
+    <script>
+        $(function(){
+            // 通过jQuery选择器获取html中的标签
+            // 创建一个选择集,似乎就是一个直接的标签选择器
+            var $divs = $("div");
+            // 获取包含有指定标签的父标签
+            var $div_p = $divs.has("p"); // 过滤选择集中包含子标签p的父标签
+            // 获取包含有指定子标签class或其他属性的父标签
+            // 注意在下面的代码中是将选择的父标签进行设置不是直接设置子标签!!!
+            var $div_pp = $divs.has(".pname").css({"color":"yellow"});// 将子标签中的属性或者是class带入has()函数,css()函数可以设置标签的css属性,注意传入的属性要使用键值对的key-value,外加{}包裹,不要忘记
+            
+            // 根据下标选择器选择指定的标签
+            var $div_input = $divs.eq(1).css({"color":"blue","background":"pink"});// 设置div标签中的第二个标签,根据选择集中的下标进行选取
+            alert($div_input)
+
+            // 选择集过滤就是在选中的集合标签中,根据需要过滤出自己需要的标签
+            
+        });
+    </script>
+</head>
+<!-- 注意:.表示class,#表示id,其余的属性可以使用:表示 -->
+<body>
+    <div>
+        <p>哈哈</p>
+        <p class="pname">哈哈哈</p>
+    </div>
+    <div>
+        哈哈哈
+        <input type="button" value="按钮">
+    </div>
+</body>
+</html>

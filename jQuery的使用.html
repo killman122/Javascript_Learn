@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入jQuery对应的js文件 -->
+    <!-- 字节跳动专用 -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 官网cdn加速1.12.4版本js -->
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+        crossorigin="anonymous"></script> -->
+    <!-- 导入本地下载的jQuery文件 -->
+    <!-- <script src="/js/jquery-1.12.4.js"></script> -->
+    <!-- 使用jQuery代码需要重新开一个script标签 -->
+    <script>
+        // 使用原生js的方式获取标签
+        window.onload = function(){
+            // 通过标签中的id获取到指定的标签元素
+            var div1 = document.getElementById("div1");//注意此处的变量不像python中可以直接在没有声明变量的前提下直接使用变量自行判断变量的格式,所以需要提前声明这个变量,使用var
+            // 使用弹窗的方式打印获取到的变量
+            alert(div1);
+        }
+
+        // 使用jQuery的方式获取html中的标签元素
+        // $符号就是jQuery的象征,$符号本质上就是一个函数,只不过函数的名称就叫做$
+        // 在调用ready方法时传入一个匿名函数当作参数传入
+        $(document).ready(function(){
+            // 注意使用方法和css选择器和xpath的写法一致,获取标签和css样式匹配标签的规则一样
+            // 使用jQuery中的变量名都要使用$符号开头
+            var $div = $("#div1")
+;            alert($div);
+        });
+
+        // jQuery的简写
+        $(function () {
+            // 注意使用方法和css选择器和xpath的写法一致,获取标签和css样式匹配标签的规则一样
+            // 使用jQuery中的变量名都要使用$符号开头
+            var $div = $("#div1"); 
+            alert($div);
+        })
+
+        // jQuery中的ready等待页面标签加载完成后就执行ready事件,不会等待资源数据加载完成
+    </script>
+</head>
+<body>
+    <div id="div1">哈哈</div>
+    <img src="/images/Magisk.png" alt="图片加载失败">
+</body>
+</html>
