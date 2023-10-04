@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // 等页面加载完成后获取标签元素
+        // $(document).ready(function(){
+        // 
+        // })
+
+        $(function () {
+            var $lis = $("ul li");// 采用类似于css中的层级选择器,当然jQuery中也具有同样功能的$()函数
+            // $lis.click($lis.prop({"color":"red"})) // 传入js对象,来设置标签属性,似乎无法直接调用click函数处理选择集中的prop()函数,但是貌似可以使用函数的方式传函数名当作句柄
+            // $lis.click($lis.css({"color":"red"})) // 传入js对象,来设置标签属性,似乎无法直接调用click函数处理选择集中的prop()函数,但是貌似可以使用函数的方式传函数名当作句柄
+            // 添加点击事件,可以观察文档得知,传入的参数似乎是一个函数或者是函数名就可以,click(handler: (eventObject: JQueryEventObject) => any): JQuery;3/3
+            // click(eventData ?: any, handler ?: (eventObject: JQueryEventObject) => any): JQuery
+            // An object containing data that will be passed to the event handler.
+            $lis.click(function () {
+                // 获取当前点击的标签对象
+                // 原生js的写法
+                // this.style.color = "red";
+
+                // 使用jQuery的方法设置标签的颜色,在点击标签事件发生时
+                $(this).css({ "color": "red" });
+
+                // 获取点击标签的索引
+                alert($(this).index())
+            })
+
+            // 获取button标签,实现在点击按钮时获取到文本框中输入的文字,并将文字以弹窗的形式显示出
+            var $btn = $("input[id=btn1]");
+            // 获取text文本输入框标签
+            var $text = $("#text1")
+            $btn.click(function () {
+                // 获取文本框的内容
+                alert($text.val())
+            });
+
+            // 完成功能,当点击到文本框的内部时,能够实现文本框内部的文本背景实现变色
+            // 给text文本框添加获取焦点事件
+            $text.focus(function(){
+                // 获取得到焦点的文本框,然后设置样式属性
+                $(this).css({"background":"red"});
+            });
+
+            // 失去焦点事件失去焦点时将文本框的背景色改为白色,不能直接求反函数会报错
+            // !$text.focus(function () {
+            //     // 获取得到焦点的文本框,然后设置样式属性
+            //     $(this).css({ "background": "blue" });
+            // });
+            $text.blur(function(){
+                //获取失去焦点的文本框,然后设置样式属性
+                $(this).css({"background":"white"});
+            });
+
+            // 获取div标签,并为div标签添加鼠标悬停事件
+            var $div = $("div");
+            // 为div标签设置鼠标悬停和鼠标进入事件,当鼠标悬停和鼠标进入时,背景颜色变为绿色
+            $div.mouseover(function(){
+                $(this).css({"background":"green"}); // 实质上调用$div等也是调用函数,应为将函数赋值给了变量,导致看起来像变量
+            })
+            // 为div标签设置鼠标离开事件,当鼠标离开时,背景颜色变为白色
+            $div.mouseout(function(){
+                $(this).css({"background":"white"})
+            })
+
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <!-- 实现效果,当点击对应的标签时,将标签的颜色设置为红色 -->
+        <ul>
+            <li>苹果</li>
+            <li>梨子</li>
+            <li>香蕉</li>
+        
+        </ul>
+        <input type="text" name="" id="text1">
+        <input type="button" id="btn1" value="你点我">
+
+    </div>
+</body>
+
+</html>

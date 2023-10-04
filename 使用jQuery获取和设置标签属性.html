@@ -4,6 +4,8 @@
             // 获取标签的属性,这里选取的属性是type属性,在id为btn1的按钮中,属性是在标签内部或者是在css选择其中设置的一些属性
             // 设置标签的属性,其中在style下的都属于是样式属性,其余的属性是真正的标签属性
             btn1.name = "username";
+
+    使用css()可以获取和修改标签的样式属性,使用prop()可以获取和修改标签的其他属性,使用val()可以获取和设置标签的value值
 -->
 
 <!DOCTYPE html>
@@ -44,10 +46,15 @@
             var $name = $txt.prop("name")// 当在prop()函数中传入两个参数时,表示对第一个参数属性名进行赋值第二个参数属性值,当传入{}包裹的键值对形式的参数,也是表示对标签的属性进行赋值
             alert($name);
 
-            // 获取标签的value可以使用更简单的方法使用val()方法
+            // 获取标签的value,可以使用更简单的方法使用val()方法
             alert(`弹窗输出该段落标签p标签的value属性'\n'${$txt.prop("value")}`)
             // 使用val()函数获取在jQuery中标签对象得取值
             alert($txt.val())// 通过查看代码悬停时得注解可以知道val()函数
+            // 使用val()方法设置标签的value属性值
+            // JQuery A function returning the value to set.this is the current element.Receives the index position of the element in the set and the old value as arguments.
+            // 实现了设置属性值value
+            $txt.val("这就设置好了值,简单吧")
+            alert(`现在弹窗输出使用val()函数设置好的标签的value值${$txt.val()}`) // 注意黄色的是函数需要使用(),或者是查看文档,但是一般jQuery中常用的都是函数
         });
     </script>
 </head>

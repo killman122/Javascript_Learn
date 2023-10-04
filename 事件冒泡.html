@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 事件冒泡: 事件会一级一级往上(父控件)传递 -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // var $btn1 = $('#btn1');
+        // $btn1.click(function () {
+        //     $(this).css({ "background": "green" });
+        //     alert("按钮被点击了")
+        // });
+        // var $div1 = $('div');
+        // $div1.click(function () {
+        //     $(this).css({ "background": "black" });
+        //     alert("div父标签被点击了");
+        // });
+        $(function () { // 注意在调用jQuery中的方法和对象以及属性时,一定要填写在ready函数中,或者是填写在$(function(){}),并且子标签的事件发生后会传递给父标签    
+            var $btn1 = $('#btn1');
+            $btn1.click(function () {
+                $(this).css({ "background": "green" });
+                alert("按钮被点击了");
+                // 取消事件冒泡传递,当点击子标签时不会影响到父标签,直接调用return false的方式返回数据,不会向上传递(向父级控件传递)
+                // return false;
+                // return true;// 注意:经过测试发现使用return true的方式没有办法阻止将子标签的事件传递给父级标签
+                // 默认情况下,子事件会传递给父标签进行事件冒泡
+            });
+            var $div1 = $('div');
+            $div1.click(function () {
+                $(this).css({ "background": "black" });
+                alert("div父标签被点击了");
+            });
+
+            // 注意:
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <p id="p1">哈哈</p>
+        <input type="button" value="按钮" id="btn1">
+        <ul>
+            <li>哈哈</li>
+            <li>我累了</li>
+            <li>毁灭吧</li>
+        </ul>
+    </div>
+</body>
+
+</html>
