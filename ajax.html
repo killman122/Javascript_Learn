@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // 发送一个向we服务器的ajax请求,本质上是一个http协议的请求
+        // 注意使用get方式能够将数据转换为      查询的键值对作为请求url的?后的查询参数
+        // 使用post的请求方式将参数写在请求体中,可以通过参数data传入,但是需要注意的是在传回的服务端数据中也是使用data参数用作传回,可以通过data参数对服务器响应后解析的JavaScript对象进行解析
+        // 发送一个get请求以传统的Ajax的方式发送
+        // $.ajax({
+        //     // 请求的资源地址,不指定ip地址和端口号表示请求的是自己的服务器的资源数据
+        //     url: "data.json",
+        //     // 常用的请求方式,post,get
+        //     type: "get",
+        //     // 返回的数据指定解析数据的格式,指定对服务器数据的解析格式
+        //     dataType: "JSON",
+        //     // data: 传入的参数data是服务器返回的数据由于设置dataType是"JSON"，所以服务器返回的数据会被解析为一个JavaScript对象，可以通过点运算符或方括号访问其属性。
+        //     // 执行成功执行的回调函数
+        //     data:{"name":"王道"},
+        //     // 传入的参数data,一般情况下向服务器传输的是一个json对象,注意不是JavaScript对象,因为JavaScript对象不需要在键值对中的key上添加双引号或者单引号(当然也不会报错),但是如果是json数据则一定需要在key上添加双引号,如果是单引号也会产生异常报错
+
+        //     success: function (response) {
+        //         console.log("请求成功");
+        //         console.log(response.name);
+        //         console.log(response);
+        //     },
+        //     // 请求失败执行的回调函数
+        //     error: function () {
+        //         console.log("请求失败执行的回调函数运行了")
+        //     },
+        //     // 是否使用异步,默认情况下不指定使用的是异步的请求
+        //     async: true
+        // });
+        
+        // 使用原生全称的Ajax请求处理post请求
+         $.ajax({
+                // 请求的资源地址,不指定ip地址和端口号表示请求的是自己的服务器的资源数据
+                url: "data.json",
+                // 常用的请求方式,post,get
+                type: "post",
+                // 返回的数据指定解析数据的格式,指定对服务器数据的解析格式
+                dataType: "JSON",
+                // data: 传入的参数data是服务器返回的数据由于设置dataType是"JSON"，所以服务器返回的数据会被解析为一个JavaScript对象，可以通过点运算符或方括号访问其属性。
+                data:{"name":"王道","age":21},
+                // 执行成功执行的回调函数
+                success: function (data) {
+                    console.log("请求成功");
+                    console.log(data.name);
+                    console.log(data);
+                },
+                // 请求失败执行的回调函数
+                error: function () {
+                    console.log("请求失败执行的回调函数运行了")
+                },
+                // 是否使用异步,默认情况下不指定使用的是异步的请求
+                async: true
+            });
+
+
+        // 使用上面的方式将参数中 type: "get"改写为post并不能构造出一个正常的post请求
+        // 使用简写的方式构造post请求   默认情况下,dataType参数填写的是json,xml...
+        // code 501, message Unsupported method ('POST') 通过简写的post进行测试得到501
+        $.post("data.json",{"name":"王道"},function(response){
+            alert(response["name"]);
+        }).fail(function(){
+            alert("请求失败,无法响应数据");
+        });
+
+        // 简写发送get方式的请求
+        // 1.请求的地址
+        // 2.请求传给web服务器的参数
+        // 3.请求成功的回调函数
+        // 4.返回数据的解析方式
+        // 5.error失败执行的回调函数
+        // $.get("data.json", { "name": "王道" }, function (data) {
+        //     // 如果按照json格式解析数据,js能得到一个JavaScript对象
+        //     alert(data.name);
+        // }, "JSON").fail(function () {
+        //     alert("网络异常,请求失败")
+        // });
+
+        // $.get("data.json", function (data) {
+        //     // 成功请求后在此处理数据
+        //     alert(data.name);
+        // }, "JSON").fail(function () {
+        //     // 请求失败后在此处理
+        //     alert("网络异常,请求失败");
+        //     // 将错误信息打印至控制台，以便于调试
+        //     console.error('请求出错');
+        // });
+
+        // $.get("data.json", function (data) {
+        //     console.log("请求成功");
+        //     console.log(data.name);
+        //     console.log(data);
+        // }, "JSON").fail(function (jqXHR, textStatus, errorThrown) {
+        //     console.error("请求失败执行的回调函数运行了: ", textStatus, errorThrown);
+        // });
+
+        // $.get("data.json", { name: "王道", city: "沃灵顿" }, function (data) { // 如果按照json格式解析数据,js能得到一个JavaScript对象
+        //     alert(data.name);
+        // }, "JSON").fail(function () {
+        //     alert("网络异常,请求失败")
+        // });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

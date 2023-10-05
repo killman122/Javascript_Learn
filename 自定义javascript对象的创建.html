@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 自定义js对象有两种方式
+        // 1.使用顶级类型Object,创建自定义对象
+        var oPerson = new Object();// 自定义的方式创建了一个js空对象
+        // 需要在空对象创建后添加属性添加方法
+        oPerson.name = "王道";
+        oPerson.show = function(){
+            //创建出一个匿名函数并传递给一个函数名,当然在传递前无法判断这里到底是一个函数还是一个属性,但是当需要的函数作为赋值的参数传递给对象的的某个属性或者方法后则该变量直接改变格式变为对象的内置方法
+            alert("卧槽你打野");
+        }
+        // 2.使用字面量创建自定义的对象
+        var oPP = {
+            name:"王道",
+            age:"21",// 注意验证在字面量的方式创建自定义对象中是否需要在key中加入双引号包裹key,因为在python中是需要在key的外层加入双引号表示key值是字符串
+            // 注意:在js中对对象的自定义方法是可以使用变量直接赋值,不需要指定接受的变量的参数类型
+            // 在字面量的方式创建对象中,无论函数是否有函数名,都需要将函数赋值给左边的字面量中的函数名,所以右边的对象函数一般使用匿名函数的方式构建
+            show:function(){
+                alert("恭喜以字面量方式创建对象的函数成功")
+            },
+            shwo:function sh(){
+                alert("验证成功")
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

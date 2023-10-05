@@ -35,7 +35,18 @@
                 alert("div父标签被点击了");
             });
 
-            // 注意:
+            // 通过事件代理,让父控件代理子控件的事件,然后执行子控件的相关操作
+            var $ul = $("div ul");
+            // $ul.delegate("li,ul","click",function(){}) // 在使用delegate()函数时,可以将标签名/标签的class,标签的id等当作标签的标志传入,但是注意传入多个的时候需要使用,逗号隔开
+            $ul.delegate("li", "click", function () {// 由于使用了代理事件冒泡,所以这里内部的参数this表示使用了代理的子标签,可以通过this控制子标签的动作,当代理函数()中需要代理多个不同标签时,需要将delegate()函数的第一个参数中加入多个标签,标签之间使用,号间隔
+                $(this).css({ "background": "red" });
+            })// 第一个参数selector表示选择器,第二个参数eventType表示事件类型,在这里是click(点击事件的事件类型),第三个参数handle(eventObject: JQueryEventObject) 可以表示为函数
+
+            // 拓展:可以代理不同子控件的事件,多个选择器之间使用,逗号分割
+            var $div1 = $("#box");
+            $div1.delegate("#p2,#btn2","click",function(){
+                alert("ok");
+            });
         })
     </script>
 </head>
@@ -49,6 +60,11 @@
             <li>我累了</li>
             <li>毁灭吧</li>
         </ul>
+    </div>
+
+    <div id="box">
+        <p id="p2">哈哈</p>
+        <input type="button" value="按钮" id="btn2">
     </div>
 </body>
 

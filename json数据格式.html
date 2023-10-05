@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 常用的json数据格式有两种,一种是类似于字典的key-value键值对形式的对象格式:最外层的表现形式是一对大括号,key名和字符串数据都要使用引号
+        // 数组格式:最外层的表现形式是一对大括号,每项数据之间使用逗号,进行分隔
+        // 对象格式的json数据
+        var sJson = '{"name":"wangdao","age":21}' // 不能连续的使用双引号和单引号,要么使用转移字符转义,要么就将单引号和双引号间隔使用
+        // 将json类型数据转换为js对象
+        var oPerson = JSON.parse(sJson)
+        console.log(oPerson["name"]) 
+        console.log(oPerson["age"]) 
+        // 使用该方式能够将json转换为js对象,由于js对象是可以操作的
+        // 将数组格式类型的json转换为了普通js对象,对于普通js对象可以使用['key']方式去除value值,
+
+        var sJson2 = '[{"name":"里斯","age":21}, {"name":"离散","age":22}]';
+        var aArray = JSON.parse(sJson2)
+        console.log(aArray[0],typeof(aArray[0])) // 输出为对象类型数据
+        console.log(aArray[1])
+        alert(aArray[0]["name"])
+        alert(aArray[1].age)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
